@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guitar World</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #f5f5f5;
+    line-height: 1.6;
+  }
+
+  header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(135deg, #b8860b, #8b4513);
+  }
+
+  header h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+  }
+
+  header p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: #0f172a;
+    padding: 15px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  nav a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: 0.3s;
+  }
+
+  nav a:hover {
+    background: #b8860b;
+    color: #1a1a2e;
+  }
+
+  section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+
+  section h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    border-left: 5px solid #b8860b;
+    padding-left: 15px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+  }
+
+  .card {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(184,134,11,0.4);
+  }
+
+  .card h3 {
+    color: #b8860b;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+  }
+
+  .parts-diagram {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .parts-diagram div {
+    background: #0f172a;
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: 1px solid #b8860b;
+    font-size: 0.95rem;
+  }
+
+  .tuner {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+  }
+
+  .tuner select, .tuner button {
+    padding: 10px 18px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  .tuner select {
+    background: #0f172a;
+    color: #f5f5f5;
+  }
+
+  .tuner button {
+    background: #b8860b;
+    color: #1a1a2e;
+    font-weight: bold;
+  }
+
+  .tuner button:hover {
+    background: #d4a017;
+  }
+
+  #noteResult {
+    margin-top: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #b8860b;
+    min-height: 40px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px;
+    background: #0f172a;
+    color: #94a3b8;
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎸 Guitar World</h1>
+  <p>Everything you need to know about guitars — types, parts, and standard tuning</p>
+</header>
+
+<nav>
+  <a href="#types">Types</a>
+  <a href="#parts">Parts</a>
+  <a href="#tuning">Tuning</a>
+  <a href="#tips">Tips</a>
+</nav>
+
+<section id="types">
+  <h2>Types of Guitars</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Acoustic Guitar</h3>
+      <p>A hollow-bodied guitar that produces sound naturally through string vibration and resonance, without needing amplification. Popular for folk, country, and singer-songwriter music.</p>
+    </div>
+    <div class="card">
+      <h3>Electric Guitar</h3>
+      <p>Uses pickups to convert string vibrations into electrical signals, which are then amplified. Common in rock, blues, jazz, and metal.</p>
+    </div>
+    <div class="card">
+      <h3>Classical Guitar</h3>
+      <p>Uses nylon strings instead of steel, producing a warmer, softer tone. Widely used in classical, flamenco, and fingerstyle music.</p>
+    </div>
+    <div class="card">
+      <h3>Bass Guitar</h3>
+      <p>A larger, lower-pitched guitar typically with four strings, forming the rhythmic and harmonic foundation of a band.</p>
+    </div>
+    <div class="card">
+      <h3>12-String Guitar</h3>
+      <p>Features six pairs of strings for a fuller, richer, chorus-like sound. Popular in folk-rock and jangly pop music.</p>
+    </div>
+    <div class="card">
+      <h3>Semi-Hollow Guitar</h3>
+      <p>Combines a hollow chamber with a solid center block, blending warm acoustic-like tones with electric versatility.</p>
+    </div>
+  </div>
+</section>
+
+<section id="parts">
+  <h2>Parts of a Guitar</h2>
+  <p>A guitar is generally made up of three main sections: the headstock, the neck, and the body.</p>
+  <div class="parts-diagram">
+    <div>🎯 Headstock</div>
+    <div>🔧 Tuning Pegs</div>
+    <div>🪢 Nut</div>
+    <div>📏 Neck</div>
+    <div>🎼 Fretboard</div>
+    <div>➖ Frets</div>
+    <div>🕳️ Sound Hole</div>
+    <div>🎻 Bridge</div>
+    <div>🎸 Body</div>
+    <div>🎚️ Pickups</div>
+    <div>🎛️ Strings</div>
+  </div>
+</section>
+
+<section id="tuning">
+  <h2>Guitar Tuner Reference</h2>
+  <div class="tuner">
+    <p>Select a string to see its standard tuning note:</p>
+    <select id="stringSelect">
+      <option value="E2">6th String (Thickest)</option>
+      <option value="A2">5th String</option>
+      <option value="D3">4th String</option>
+      <option value="G3">3rd String</option>
+      <option value="B3">2nd String</option>
+      <option value="E4">1st String (Thinnest)</option>
+    </select>
+    <br>
+    <button onclick="showNote()">Show Note</button>
+    <div id="noteResult"></div>
+  </div>
+</section>
+
+<section id="tips">
+  <h2>Beginner Tips</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Start Slow</h3>
+      <p>Focus on clean chord transitions before trying to play fast. Accuracy first, speed later.</p>
+    </div>
+    <div class="card">
+      <h3>Practice Daily</h3>
+      <p>Even 15–20 minutes of consistent daily practice beats occasional long sessions.</p>
+    </div>
+    <div class="card">
+      <h3>Learn Basic Chords</h3>
+      <p>Start with G, C, D, Em, and Am — most songs can be played using just these.</p>
+    </div>
+    <div class="card">
+      <h3>Tune Before You Play</h3>
+      <p>Always check your tuning before practicing so your ear gets used to correct pitch.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Guitar World — Made for guitar lovers</p>
+</footer>
+
+<script>
+  const notes = {
+    "E2": "E (Low E) — 6th String",
+    "A2": "A — 5th String",
+    "D3": "D — 4th String",
+    "G3": "G — 3rd String",
+    "B3": "B — 2nd String",
+    "E4": "E (High E) — 1st String"
+  };
+
+  function showNote() {
+    const select = document.getElementById("stringSelect");
+    const result = document.getElementById("noteResult");
+    result.textContent = notes[select.value];
+  }
+</script>
+
+</body>
+</html>
